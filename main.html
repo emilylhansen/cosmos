@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!--Please do not copy without permission-->
+<html>
+<head>
+	<title>Emily Hansen</title>
+  <link rel="stylesheet" href="personal.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+
+    /* move name up and down on alternate clicks to reveal menu ***************/
+    $(function()
+      {
+          var counter = 0;
+          var up = false;
+          $('#btn').click(function()
+                              {
+
+																	//show menuDiv
+                                  if (!up)
+                                  {
+                                      counter += 180;
+                                      $(".name_btn_Div").animate({top: '-190px',}, 1000);
+                                      $(".curtain").animate({top: '-200px',}, 1000);
+                                      $(".outerMenuDiv").animate({top: '310px',}, 1000);
+                                      $(this).css({"transform": "rotate(" + counter + "deg)", "transition": "transform 1s"});
+
+                                      up = true;
+                                  }
+
+																	//hide menuDiv
+                                  else
+                                  {
+
+                                      counter += 180;
+                                      $(".name_btn_Div").animate({top: '0px',}, 1000);
+                                      $(".curtain").animate({top: '0px',}, 1000);
+                                      $(".outerMenuDiv").animate({top: '0px',}, 1000);
+                                      $(this).css({"transform": "rotate(" + counter + "deg)", "transition": "transform 1s"});
+
+                                      up = false;
+                                  }
+                              }); /*end move name up and down*/
+      }); /*end move name up and down*/
+
+
+    var className; //class number of optDiv
+    var elem; //get optWindow with same class number
+    var strClass; // select particular window
+
+    /* open option window *****************************************************/
+    $(function()
+      {
+          $('.optDiv').click(function()
+                             {
+
+                                  className = $(this).attr('class').split(' ')[1];
+                                  elem = document.getElementsByClassName('optWindow ' + className)
+                                  strClass = '.optWindow.' + className;
+
+                                  $(strClass).css("transform","scale(4.5, 4.5)");
+                                  $(strClass).css("visibility","visible");
+                                  $(strClass).css("z-index","48");
+
+
+                                  /*position optWindow center screen*/
+                                  switch(className) {
+                                      case 'one':
+                                          $(strClass).animate({left: '410px', top: '130px'}, 1000);
+                                          break;
+                                      case 'two':
+                                          $(strClass).animate({left: '0px', top: '130px'}, 1000);
+                                          break;
+                                      case 'three':
+                                          $(strClass).animate({left: '-410px', top: '130px'}, 1000);
+                                          break;
+                                      case 'four':
+                                          $(strClass).animate({left: '410px', top: '-10px'}, 1000);
+                                          break;
+                                      case 'five':
+                                          $(strClass).animate({left: '0px', top: '-10px'}, 1000);
+                                          break;
+                                      case 'six':
+                                          $(strClass).animate({left: '-410px', top: '-10px'}, 1000);
+                                          break;
+                                      case 'seven':
+                                          $(strClass).animate({left: '0px', top: '-160px'}, 1000);
+                                          break;
+                                      /*case 'eight':
+                                          $(strClass).animate({left: '0px', top: '-160px'}, 1000);
+                                          break;
+                                      case 'nine':
+                                          $(strClass).animate({left: '-410px', top: '-160px'}, 1000);
+                                          break;*/
+                                      default:
+                                          $(strClass).animate({left: '0px', top: '0px'}, 1000);
+                                  }/*end switch statement*/
+
+                             }); /*end open function*/
+    }); /*end open function*/
+
+    /* close option window ****************************************************/
+    $(function()
+      {
+          $('.exit').click(function()
+                              {
+
+                                $(strClass).css("transform","scale(0)");
+
+                                $(".optWindow").animate({left: '0px', top: '0px'}, 1000);
+
+                                setTimeout(function()
+                                    {
+                                      $(strClass).css("visibility","hidden");
+                                    }
+                                    ,1000); /*end setTimeout*/
+
+                              }); /*end close function*/
+
+      }); /*end close function*/
+
+
+  </script>
+</head>
+
+
+<body>
+
+  <!-- menu and options *****************************************************-->
+  <div class = "outerMenuDiv">
+
+    <br></br>
+    <br></br>
+
+    <!-- option buttons, row one ********************************************-->
+    <div class = "menuDiv first">
+      <div class = "optDiv one" style="background-position:left top;"><h3 class = "optDivText">ABOUT</h3></div>
+      <div class = "optDiv two" style="background-position:center top;"><h3 class = "optDivText">CONTACT</h3></div>
+      <div class = "optDiv three" style="background-position:right top;"><h3 class = "optDivText">RESUME</h3></div>
+    </div>
+
+    <!-- option windows, row one ********************************************-->
+    <div class = "menuDiv second">
+
+      <!-- option one *******************************************************-->
+      <div class = "optWindow one">
+
+        <div class = "exit one">
+        <h1 class = "exitText one">x</h1>
+        </div>
+
+        <div class = "contentDiv one">
+          <h3>0xABOUT</h3>
+          <div style="text-align:left;">
+            <p>
+              <img src="image1.jpg" id = "imgDiv">
+              Hello, my name is Emily and welcome to my official self-built website
+              (you can find the full code on my
+              <a target="_blank" href="https://github.com/emilylhansen" class="linkText">GitHub</a>
+              )!
+              I am a computer science major with a triple minor in
+              art history, dance, and visual arts at Boston University, but I am taking a year off
+              to attend a coding bootcamp. I wasn't enjoying my classes and I
+              wasn't learning what I wanted to learn in college, so I decided to put
+              my formal education on hold and pursue my interest in web development.
+              Following my completion of coding bootcamp I hope to find a full-time
+              job as a web developer and to continue to build amazing projects.
+              <br></br>
+              I was introduced to web development during a freshmen year course, and
+              I fell in love with the infinite programs I could build. I love to
+              create and develop, and programming is a medium that I use for self
+              expression, similar to how I use charcoal, watercolor, piano keys,
+              my voice, and my body to construct forms, sounds, and movements.
+              I need to use my mind to generate the unimaginable, and I want to
+              bring those ideas to life as an engineer.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- option two *******************************************************-->
+      <div class = "optWindow two">
+
+        <div class = "exit two">
+        <h1 class = "exitText two">x</h1>
+        </div>
+
+        <div class = "contentDiv two">
+          <h3>0xCONTACT</h3>
+          <p class="two">
+            You can connect with me on:
+            <br></br>
+            <a target="_blank" href="https://github.com/emilylhansen" class="linkText">GitHub</a>
+            <br></br>
+            <a target="_blank" href="https://www.linkedin.com/in/emily-h-12737213b/" class="linkText">LinkedIn</a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- option three *****************************************************-->
+      <div class = "optWindow three">
+
+        <div class = "exit three">
+        <h1 class = "exitText three">x</h1>
+        </div>
+
+        <div class = "contentDiv three">
+          <h3>RESUME</h3>
+					<!--
+					<a href="resume.docx" download class="linkText">Download Resume</a>
+          <p>
+            I hate leadership positions and people. Please hire me.
+          </p>
+				  -->
+					<p>Coming soon<p>
+        </div>
+
+      </div>
+
+    </div> <!--end menuDiv second-->
+
+    <!--*********************************************************************-->
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <!-- option buttons, row two ********************************************-->
+    <div class = "menuDiv first">
+      <div class = "optDiv four" style="background-position:left center;"><h3 class = "optDivText">EDUCATION</h3></div>
+      <div class = "optDiv five" style="background-position:center center;"><h3 class = "optDivText">SKILLS</h3></div>
+      <div class = "optDiv six" style="background-position:right center;"><h3 class = "optDivText">PROJECTS</h3></div>
+    </div>
+
+    <!-- option windows, row two ********************************************-->
+    <div class = "menuDiv second">
+
+      <!-- option four ******************************************************-->
+      <div class = "optWindow four">
+        <div class = "exit four">
+        <h1 class = "exitText four">x</h1>
+        </div>
+        <div class = "contentDiv four">
+          <h3>0xEDUCATION</h3>
+          <div style="text-align:left;">
+						<h3 style="color: lightblue;">Boston University</h3>
+            <p style="font-size:5px;">
+              &nbsp;&nbsp;Bachelor of Computer Science, expected May 2020
+            </p>
+            <h3 style="color: lightblue;">Connecticut College</h3>
+            <p style="font-size:5px;">
+              &nbsp;&nbsp;2015 - 2016
+            </p>
+            <h3 style="color: lightblue;">Vivian Webb School</h3>
+            <p style="font-size:5px;">
+              &nbsp;&nbsp;2011 - 2015
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- option five ******************************************************-->
+      <div class = "optWindow five">
+        <div class = "exit five">
+        <h1 class = "exitText five">x</h1>
+        </div>
+        <div class = "contentDiv five">
+        <h3>SKILLS</h3>
+        <p>
+          <div class = "skillsDiv" style="float:left;">
+            <div class = "skillsLabel" style="background-position:left top;"><h3>Frontend</h3></div>
+
+              HTML5 <br>
+              CSS3 <br>
+              JavaScript <br>
+              JQuery
+
+          </div>
+          <div class = "skillsDiv" style="float:right;">
+            <div class = "skillsLabel" style="background-position:right top;"><h3>Backend</h3></div>
+              PHP <br>
+              MySQL <br>
+              Python <br>
+              Java <br>
+              C <br>
+              Ruby <br>
+              Assembly language <br>
+              ATS
+          </div>
+          <br><br><br><br><br><br><br><br><br><br>
+          <div class = "skillsDiv" style="float:left;">
+            <div class = "skillsLabel" style="background-position:left bottom;"><h3>Design</h3></div>
+            Pixelmator
+          </div>
+        </p>
+        </div>
+      </div>
+
+      <!-- option six *******************************************************-->
+      <div class = "optWindow six">
+        <div class = "exit six">
+        <h1 class = "exitText six">x</h1>
+        </div>
+        <div class = "contentDiv six">
+        <h3>PROJECTS</h3>
+					<p>Coming soon<p>
+        	<div class="projectDiv" style="float:left; padding-left: 25px;">
+						<div class="projectImgDiv">
+						</div>
+						Project I
+					</div>
+
+					<div class="projectDiv" style="float:right; padding-right: 25px;">
+						<div class="projectImgDiv">
+						</div>
+						Project II
+					</div>
+
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+					<div class="projectDiv" style="float:left; padding-left: 25px;">
+						<div class="projectImgDiv">
+						</div>
+						Project III
+					</div>
+
+					<div class="projectDiv" style="float:right; padding-right: 25px;">
+						<div class="projectImgDiv">
+						</div>
+						Project IV
+					</div>
+
+        </div>
+      </div>
+
+    </div> <!--end menuDiv second-->
+
+    <!--*********************************************************************-->
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <!-- option buttons, row three ******************************************-->
+    <div class = "menuDiv">
+      <div class = "optDiv seven" style="background-position:center bottom;"><h3 class = "optDivText">ART</h3></div>
+      <!--<div class = "optDiv eight" style="background-position:center bottom;"><h3 class = "optDivText">eight</h3></div>
+      <div class = "optDiv nine" style="background-position:right bottom;"><h3 class = "optDivText">nine</h3></div>-->
+    </div>
+
+    <!-- option windows, row three ******************************************-->
+    <div class = "menuDiv second">
+
+      <!-- option seven *****************************************************-->
+      <div class = "optWindow seven">
+        <div class = "exit seven">
+        <h1 class = "exitText seven">x</h1>
+        </div>
+        <div class = "contentDiv seven">
+          <h3>0xART</h3>
+          <p>
+            You can purchase my watercolor backgrounds used on my website
+						<a target="_blank" href="https://www.etsy.com/" class="linkText">here</a>
+            and
+						<a target="_blank" href="https://www.etsy.com/" class="linkText">here</a>
+            (Coming soon).
+          </p>
+        </div>
+      </div>
+
+
+      <!-- option eight *****************************************************
+      <div class = "optWindow eight">
+        <div class = "exit eight">
+          <h1 class = "exitText eight">x</h1>
+        </div>
+        <div class = "contentDiv eight">
+        <h3>EIGHT</h3>
+        <p>
+          Enter stuff here
+        </p>
+        </div>
+      </div>
+
+      option nine ******************************************************
+      <div class = "optWindow nine">
+        <div class = "exit nine">
+        <h1 class = "exitText nine">x</h1>
+        </div>
+        <div class = "contentDiv nine">
+        <h3>NINE</h3>
+        <p>
+          Enter stuff here
+        </p>
+        </div>
+      </div>
+			-->
+
+    </div> <!--end menuDiv second-->
+
+  </div> <!--end outerMenuDiv-->
+
+  <!-- canvas curtain *******************************************************-->
+
+  <div class = "curtain"></div>
+
+  <!-- title and button *****************************************************-->
+
+  <div class = "name_btn_Div">
+
+    <div class= "nameDiv">
+      <h1 id = "nameTxt">0xEmily L. Hansen</h1>
+      <h3 style="font-family: Courier New;">Web Developer, Artist, Creator</h3>
+    </div>
+
+    <div class = "btnDiv">
+      <button type="button" id = "btn" value= "true">&#9661;</button>
+    </div>
+
+  </div>
+  <!-- copyright text *******************************************************-->
+  <div id = "copy">
+    <h6 style="font-family: Courier New;">&copy; 2017 Emily L. Hansen. All rights reserved.</h6>
+  </div>
+</body>
+
+
+
+
+
+</html>
