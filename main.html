@@ -2,7 +2,7 @@
 <!--Please do not copy without permission-->
 <html>
 <head>
-	<title>Emily Hansen</title>
+	<title>TITLE</title>
   <link rel="stylesheet" href="personal.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>
@@ -10,111 +10,105 @@
     /* move name up and down on alternate clicks to reveal menu ***************/
     $(function()
       {
-          var counter = 0;
-          var up = false;
-          $('#btn').click(function()
-                              {
+        var counter = 0;
+        var up = false;
+        $('#btn').click(function()
+        {
+          if (!up)
+          {
+              counter += 180;
+              $(".name_btn_Div").animate({top: '-190px',}, 1000);
+              $(".curtain").animate({top: '-200px',}, 1000);
+              $(".outerMenuDiv").animate({top: '310px',}, 1000);
+              $(this).css({"transform": "rotate(" + counter + "deg)", "transition": "transform 1s"});
 
-																	//show menuDiv
-                                  if (!up)
-                                  {
-                                      counter += 180;
-                                      $(".name_btn_Div").animate({top: '-190px',}, 1000);
-                                      $(".curtain").animate({top: '-200px',}, 1000);
-                                      $(".outerMenuDiv").animate({top: '310px',}, 1000);
-                                      $(this).css({"transform": "rotate(" + counter + "deg)", "transition": "transform 1s"});
+              up = true;
+          }
 
-                                      up = true;
-                                  }
+          else
+          {
 
-																	//hide menuDiv
-                                  else
-                                  {
+              counter += 180;
+              $(".name_btn_Div").animate({top: '0px',}, 1000);
+              $(".curtain").animate({top: '0px',}, 1000);
+              $(".outerMenuDiv").animate({top: '0px',}, 1000);
+              $(this).css({"transform": "rotate(" + counter + "deg)", "transition": "transform 1s"});
 
-                                      counter += 180;
-                                      $(".name_btn_Div").animate({top: '0px',}, 1000);
-                                      $(".curtain").animate({top: '0px',}, 1000);
-                                      $(".outerMenuDiv").animate({top: '0px',}, 1000);
-                                      $(this).css({"transform": "rotate(" + counter + "deg)", "transition": "transform 1s"});
-
-                                      up = false;
-                                  }
-                              }); /*end move name up and down*/
+              up = false;
+          }
+        }); /*end move name up and down*/
       }); /*end move name up and down*/
 
 
-    var className; //class number of optDiv
-    var elem; //get optWindow with same class number
-    var strClass; // select particular window
+    var className;
+    var elem;
+    var strClass;
 
     /* open option window *****************************************************/
     $(function()
       {
-          $('.optDiv').click(function()
-                             {
+			$('.optDiv').click(function()
+			   {
+		        className = $(this).attr('class').split(' ')[1];
+		        elem = document.getElementsByClassName('optWindow ' + className)
+		        strClass = '.optWindow.' + className;
 
-                                  className = $(this).attr('class').split(' ')[1];
-                                  elem = document.getElementsByClassName('optWindow ' + className)
-                                  strClass = '.optWindow.' + className;
+		        $(strClass).css("transform","scale(4.5, 4.5)");
+		        $(strClass).css("visibility","visible");
+		        $(strClass).css("z-index","48");
 
-                                  $(strClass).css("transform","scale(4.5, 4.5)");
-                                  $(strClass).css("visibility","visible");
-                                  $(strClass).css("z-index","48");
+		        switch(className) {
+		            case 'one':
+		                $(strClass).animate({left: '410px', top: '130px'}, 1000);
+		                break;
+		            case 'two':
+		                $(strClass).animate({left: '0px', top: '130px'}, 1000);
+		                break;
+		            case 'three':
+		                $(strClass).animate({left: '-410px', top: '130px'}, 1000);
+		                break;
+		            case 'four':
+		                $(strClass).animate({left: '410px', top: '-10px'}, 1000);
+		                break;
+		            case 'five':
+		                $(strClass).animate({left: '0px', top: '-10px'}, 1000);
+		                break;
+		            case 'six':
+		                $(strClass).animate({left: '-410px', top: '-10px'}, 1000);
+		                break;
+		            case 'seven':
+		                $(strClass).animate({left: '0px', top: '-160px'}, 1000);
+		                break;
+		            case 'eight':
+		                $(strClass).animate({left: '0px', top: '-160px'}, 1000);
+		                break;
+		            case 'nine':
+		                $(strClass).animate({left: '-410px', top: '-160px'}, 1000);
+		                break;
+		            default:
+		                $(strClass).animate({left: '0px', top: '0px'}, 1000);
+		        }/*end switch statement*/
 
-
-                                  /*position optWindow center screen*/
-                                  switch(className) {
-                                      case 'one':
-                                          $(strClass).animate({left: '410px', top: '130px'}, 1000);
-                                          break;
-                                      case 'two':
-                                          $(strClass).animate({left: '0px', top: '130px'}, 1000);
-                                          break;
-                                      case 'three':
-                                          $(strClass).animate({left: '-410px', top: '130px'}, 1000);
-                                          break;
-                                      case 'four':
-                                          $(strClass).animate({left: '410px', top: '-10px'}, 1000);
-                                          break;
-                                      case 'five':
-                                          $(strClass).animate({left: '0px', top: '-10px'}, 1000);
-                                          break;
-                                      case 'six':
-                                          $(strClass).animate({left: '-410px', top: '-10px'}, 1000);
-                                          break;
-                                      case 'seven':
-                                          $(strClass).animate({left: '0px', top: '-160px'}, 1000);
-                                          break;
-                                      /*case 'eight':
-                                          $(strClass).animate({left: '0px', top: '-160px'}, 1000);
-                                          break;
-                                      case 'nine':
-                                          $(strClass).animate({left: '-410px', top: '-160px'}, 1000);
-                                          break;*/
-                                      default:
-                                          $(strClass).animate({left: '0px', top: '0px'}, 1000);
-                                  }/*end switch statement*/
-
-                             }); /*end open function*/
+			   }); /*end open function*/
     }); /*end open function*/
 
     /* close option window ****************************************************/
     $(function()
       {
-          $('.exit').click(function()
-                              {
+      $('.exit').click(function()
+        {
 
-                                $(strClass).css("transform","scale(0)");
+          $(strClass).css("transform","scale(0)");
 
-                                $(".optWindow").animate({left: '0px', top: '0px'}, 1000);
+          $(".optWindow").animate({left: '0px', top: '0px'}, 1000);
 
-                                setTimeout(function()
-                                    {
-                                      $(strClass).css("visibility","hidden");
-                                    }
-                                    ,1000); /*end setTimeout*/
+          setTimeout(function()
+              {
+                $(strClass).css("visibility","hidden");
+              }
+              ,1000); /*end setTimeout*/
 
-                              }); /*end close function*/
+        }); /*end close function*/
 
       }); /*end close function*/
 
@@ -133,9 +127,9 @@
 
     <!-- option buttons, row one ********************************************-->
     <div class = "menuDiv first">
-      <div class = "optDiv one" style="background-position:left top;"><h3 class = "optDivText">ABOUT</h3></div>
-      <div class = "optDiv two" style="background-position:center top;"><h3 class = "optDivText">CONTACT</h3></div>
-      <div class = "optDiv three" style="background-position:right top;"><h3 class = "optDivText">RESUME</h3></div>
+      <div class = "optDiv one" style="background-position:left top;"><h3 class = "optDivText">ONE</h3></div>
+      <div class = "optDiv two" style="background-position:center top;"><h3 class = "optDivText">TWO</h3></div>
+      <div class = "optDiv three" style="background-position:right top;"><h3 class = "optDivText">THREE</h3></div>
     </div>
 
     <!-- option windows, row one ********************************************-->
@@ -149,29 +143,13 @@
         </div>
 
         <div class = "contentDiv one">
-          <h3>0xABOUT</h3>
+          <h3>ONE</h3>
           <div style="text-align:left;">
             <p>
               <img src="image1.jpg" id = "imgDiv">
-              Hello, my name is Emily and welcome to my official website
-              (you can find the full code on my
-              <a target="_blank" href="https://github.com/emilylhansen" class="linkText">GitHub</a>
-              )!
-              I am a computer science major with a triple minor in
-              art history, dance, and visual arts at Boston University, but I am taking a year off
-              to attend a coding bootcamp. I wasn't enjoying my classes and I
-              wasn't learning what I wanted to learn in college, so I decided to put
-              my formal education on hold and pursue my interest in web development.
-              Following my completion of coding bootcamp I hope to find a full-time
-              job as a web developer where I can continue my education through work experience.
-              <br></br>
-              I was introduced to web development during a freshmen year course, and
-              I fell in love with the infinite programs I could build. I love to
-              create and develop, and programming is a medium that I use for self
-              expression, similar to how I use charcoal, watercolor, piano keys,
-              and my body to construct forms, sounds, and movements.
-              I need to use my mind to generate the unimaginable, and I want to
-              bring those ideas to life as an engineer.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc scelerisque viverra mauris in aliquam. Dignissim enim sit amet venenatis urna. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Amet mauris commodo quis imperdiet massa. Nunc sed velit dignissim sodales ut eu. Dolor sit amet consectetur adipiscing elit ut aliquam purus. Nulla pellentesque dignissim enim sit amet. Arcu dui vivamus arcu felis bibendum ut tristique. Gravida rutrum quisque non tellus orci ac auctor augue. Rhoncus est pellentesque elit ullamcorper. Tellus elementum sagittis vitae et leo duis ut diam. Eget duis at tellus at urna condimentum mattis pellentesque id. Id diam vel quam elementum pulvinar. Viverra justo nec ultrices dui sapien eget mi. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Nibh sit amet commodo nulla facilisi nullam. A cras semper auctor neque vitae tempus quam.
+							<br>
+							Commodo quis imperdiet massa tincidunt. Nunc pulvinar sapien et ligula ullamcorper. Tincidunt tortor aliquam nulla facilisi. Quis hendrerit dolor magna eget est lorem ipsum dolor. Aliquet nec ullamcorper sit amet risus. Interdum consectetur libero id faucibus nisl tincidunt eget nullam. Integer vitae justo eget magna fermentum iaculis eu non. Arcu cursus vitae congue mauris rhoncus aenean. Enim neque volutpat ac tincidunt. Tellus molestie nunc non blandit. Diam phasellus vestibulum lorem sed.
             </p>
           </div>
         </div>
@@ -186,13 +164,9 @@
         </div>
 
         <div class = "contentDiv two">
-          <h3>0xCONTACT</h3>
+          <h3>TWO</h3>
           <p class="two">
-            You can connect with me on:
-            <br></br>
-            <a target="_blank" href="https://github.com/emilylhansen" class="linkText">GitHub</a>
-            <br></br>
-            <a target="_blank" href="https://www.linkedin.com/in/emily-h-12737213b/" class="linkText">LinkedIn</a>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc scelerisque viverra mauris in aliquam. Dignissim enim sit amet venenatis urna. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Amet mauris commodo quis imperdiet massa. Nunc sed velit dignissim sodales ut eu. Dolor sit amet consectetur adipiscing elit ut aliquam purus. Nulla pellentesque dignissim enim sit amet. Arcu dui vivamus arcu felis bibendum ut tristique. Gravida rutrum quisque non tellus orci ac auctor augue. Rhoncus est pellentesque elit ullamcorper. Tellus elementum sagittis vitae et leo duis ut diam. Eget duis at tellus at urna condimentum mattis pellentesque id. Id diam vel quam elementum pulvinar. Viverra justo nec ultrices dui sapien eget mi. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Nibh sit amet commodo nulla facilisi nullam. A cras semper auctor neque vitae tempus quam.
           </p>
         </div>
 
@@ -206,14 +180,8 @@
         </div>
 
         <div class = "contentDiv three">
-          <h3>RESUME</h3>
-					<!--
-					<a href="resume.docx" download class="linkText">Download Resume</a>
-          <p>
-            I hate leadership positions and people. Please hire me.
-          </p>
-				  -->
-					<p>Coming soon<p>
+          <h3>THREE</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc scelerisque viverra mauris in aliquam. Dignissim enim sit amet venenatis urna. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Amet mauris commodo quis imperdiet massa. Nunc sed velit dignissim sodales ut eu. Dolor sit amet consectetur adipiscing elit ut aliquam purus. Nulla pellentesque dignissim enim sit amet. Arcu dui vivamus arcu felis bibendum ut tristique. Gravida rutrum quisque non tellus orci ac auctor augue. Rhoncus est pellentesque elit ullamcorper. Tellus elementum sagittis vitae et leo duis ut diam. Eget duis at tellus at urna condimentum mattis pellentesque id. Id diam vel quam elementum pulvinar. Viverra justo nec ultrices dui sapien eget mi. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Nibh sit amet commodo nulla facilisi nullam. A cras semper auctor neque vitae tempus quam.
         </div>
 
       </div>
@@ -229,9 +197,9 @@
 
     <!-- option buttons, row two ********************************************-->
     <div class = "menuDiv first">
-      <div class = "optDiv four" style="background-position:left center;"><h3 class = "optDivText">EDUCATION</h3></div>
-      <div class = "optDiv five" style="background-position:center center;"><h3 class = "optDivText">SKILLS</h3></div>
-      <div class = "optDiv six" style="background-position:right center;"><h3 class = "optDivText">PROJECTS</h3></div>
+      <div class = "optDiv four" style="background-position:left center;"><h3 class = "optDivText">FOUR</h3></div>
+      <div class = "optDiv five" style="background-position:center center;"><h3 class = "optDivText">FIVE</h3></div>
+      <div class = "optDiv six" style="background-position:right center;"><h3 class = "optDivText">SIX</h3></div>
     </div>
 
     <!-- option windows, row two ********************************************-->
@@ -243,7 +211,7 @@
         <h1 class = "exitText four">x</h1>
         </div>
         <div class = "contentDiv four">
-          <h3>0xEDUCATION</h3>
+          <h3>FOUR</h3>
           <div style="text-align:left;">
 						<h3 style="color: lightblue;">Boston University</h3>
             <p style="font-size:5px;">
@@ -267,7 +235,7 @@
         <h1 class = "exitText five">x</h1>
         </div>
         <div class = "contentDiv five">
-        <h3>SKILLS</h3>
+        <h3>FIVE</h3>
         <p>
           <div class = "skillsDiv" style="float:left;">
             <div class = "skillsLabel" style="background-position:left top;"><h3>Frontend</h3></div>
