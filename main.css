@@ -20,6 +20,7 @@
   border: 1px solid white;
   border-radius: 7px;
   margin: auto;
+  color: #1C1C1C;
 
 }
 
@@ -32,7 +33,7 @@
   border-radius: 7px;
   margin: auto;
   font-family: "Courier New";
-
+  color: #1C1C1C;
 }
 
 #btn {
@@ -50,13 +51,15 @@
   overflow: hidden;
   line-height: 0px;
   position: relative;
-  padding-top: 16px;
+  padding-top: 14px;
   outline: 0;
 
 }
 
 #btn:hover {
-  color: gray;
+  color: #E3E3E3;
+  cursor: pointer;
+
 }
 
 .btnDiv {
@@ -130,6 +133,7 @@
 
 .optDiv:hover {
   color: gray;
+  cursor: pointer;
 }
 
 .optDivText {
@@ -143,21 +147,20 @@
 }
 
 .optWindow {
-  border: 1px solid white;
-  border-radius: 7px;
   text-align: center;
   vertical-align: middle;
   align-content: center;
   height: 75px;
-  width: 300px;
+  width: 18%;
   margin: 0 auto;
   -webkit-transform: scale(0);
   -webkit-transition: -webkit-transform 1s ease-in-out;
   position: relative;
   overflow: auto;
   font-size: 7px;
-  padding-bottom: 30px;
+  /*padding-bottom: 30px;*/
   background-color: white;
+  padding: 10px;
 
 }
 
@@ -175,22 +178,23 @@
 .exit {
   border: 1px solid white;
   text-align: center;
-  height: 12px;
-  width: 12px;
+  /*height: 12px;
+  width: 12px;*/
   white-space: nowrap;
   text-overflow: clip;
   overflow: hidden;
   line-height: 0px;
   position: relative;
-  left: 280px;
+  float:right;
 }
 
 .exit:hover {
   color: gray;
+  cursor: pointer;
 }
 
 .exitText {
-  font-size: 10px;
+  font-size: 6px;
   font-family: "Courier New";
 }
 
@@ -273,7 +277,7 @@
 /**************************************/
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 1px;
    background-color: white;
   -webkit-border-radius: 80px;
 }
@@ -300,4 +304,5 @@
   right: 0;
   bottom: 0;
   left: 0;
+  color: #1C1C1C;
 }
